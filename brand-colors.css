@@ -1,0 +1,41 @@
+/**
+ * SAM SIGN Brand Colors
+ * Professional Advertising Solutions & Signage
+ * Established: 2018
+ */
+
+:root {
+  /* Primary Brand Colors */
+  --sam-yellow: #F4C430;
+  --sam-black: #000000;
+  --sam-white: #FFFFFF;
+  
+  /* Grey Scale */
+  --sam-grey-light: #F5F5F5;
+  --sam-grey-medium: #808080;
+  --sam-grey-dark: #333333;
+  
+  /* RGB Values */
+  --sam-yellow-rgb: 244, 196, 48;
+  --sam-black-rgb: 0, 0, 0;
+  --sam-white-rgb: 255, 255, 255;
+  
+  /* Usage Variables */
+  --sam-primary: var(--sam-yellow);
+  --sam-secondary: var(--sam-black);
+  --sam-background: var(--sam-white);
+  --sam-text-primary: var(--sam-black);
+  --sam-text-secondary: var(--sam-grey-dark);
+  --sam-border: var(--sam-grey-medium);
+}
+
+/* Utility Classes */
+.sam-yellow { color: var(--sam-yellow); }
+.sam-black { color: var(--sam-black); }
+.sam-white { color: var(--sam-white); }
+.bg-sam-yellow { background-color: var(--sam-yellow); }
+.bg-sam-black { background-color: var(--sam-black); }
+.bg-sam-white { background-color: var(--sam-white); }
+.border-sam-yellow { border-color: var(--sam-yellow); }
+.border-sam-black { border-color: var(--sam-black); }
+

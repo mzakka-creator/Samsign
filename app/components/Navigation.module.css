@@ -1,0 +1,173 @@
+/* Navigation Container */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: all 0.4s ease;
+}
+
+.navScrolled {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.navTransparent {
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding: 2rem 0;
+}
+
+/* Blur Overlay */
+.blurOverlay {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Container */
+.container {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  z-index: 1;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding: 0 6rem;
+  }
+}
+
+.flexContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logoSection {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+
+.logoSection:hover {
+  opacity: 0.8;
+}
+
+.logoImage {
+  height: auto;
+  width: auto;
+  max-height: 2.5rem;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.logoImageTransparent {
+  filter: brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
+}
+
+/* Navigation Menu */
+.navMenu {
+  display: none;
+  align-items: center;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .navMenu {
+    display: flex;
+  }
+}
+
+/* Navigation Buttons */
+.navButton {
+  position: relative;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  font-family: var(--font-body);
+  letter-spacing: 0.02em;
+  padding: 0.5rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navButtonScrolled {
+  color: #333333;
+}
+
+.navButtonScrolled:hover {
+  color: #000000;
+}
+
+.navButtonTransparent {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.navButtonTransparent:hover {
+  color: #ffffff;
+}
+
+.navButton::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #F4C430;
+  transition: width 0.3s ease;
+}
+
+.navButton:hover::after {
+  width: 100%;
+}
+
+/* Contact Button */
+.contactButton {
+  padding: 0.75rem 2rem;
+  background: #F4C430;
+  color: #000000;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  font-family: var(--font-body);
+  letter-spacing: 0.02em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.contactButton:hover {
+  background: #e0b028;
+  transform: translateY(-1px);
+}
+
+.contactButton:active {
+  transform: translateY(0);
+}

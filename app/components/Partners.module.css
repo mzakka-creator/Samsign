@@ -1,0 +1,176 @@
+.section {
+  padding: 6rem 0;
+  background: #F5F5F5;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 8rem 0;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.headerHidden {
+  opacity: 0;
+}
+
+.headerVisible {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3.75rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #4b5563;
+  font-family: var(--font-body);
+}
+
+/* Auto-scrolling Bar */
+.scrollWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.scrollContainer {
+  display: flex;
+  gap: 2rem;
+  width: fit-content;
+  animation: scroll 30s linear infinite;
+  will-change: transform;
+}
+
+.scrollContainer:hover {
+  animation-play-state: paused;
+}
+
+@media (min-width: 768px) {
+  .scrollContainer {
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .scrollContainer {
+    gap: 4rem;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.partnerCard {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .partnerCard {
+    width: 150px;
+    height: 150px;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .partnerCard {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+.partnerCard:hover {
+  background: #F4C430;
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.partnerLogo {
+  color: #9ca3af;
+  font-weight: 700;
+  font-size: 1.25rem;
+  transition: color 0.3s;
+  font-family: var(--font-heading);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .partnerLogo {
+    font-size: 1.5rem;
+  }
+}
+
+.partnerCard:hover .partnerLogo {
+  color: #000000;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

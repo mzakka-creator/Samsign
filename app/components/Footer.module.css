@@ -1,0 +1,154 @@
+.footer {
+  background: #000000;
+  color: #ffffff;
+  padding: 4rem 0;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 6rem 0;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.brandSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandLogo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.brandLogoText {
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #F4C430;
+  font-family: var(--font-heading);
+}
+
+.brandLogoSubtext {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  font-family: var(--font-body);
+}
+
+.brandDescription {
+  color: #9ca3af;
+  margin-bottom: 1rem;
+  font-family: var(--font-body);
+}
+
+.brandInfo {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-family: var(--font-body);
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-heading);
+}
+
+.linksList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+}
+
+.link {
+  color: #9ca3af;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #F4C430;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: #9ca3af;
+  font-family: var(--font-body);
+}
+
+.contactLabel {
+  color: #F4C430;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.socialLink {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #1f2937;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.socialLink:hover {
+  background: #F4C430;
+  color: #000000;
+}
+
+.socialLinkText {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.copyright {
+  border-top: 1px solid #1f2937;
+  padding-top: 2rem;
+  margin-top: 2rem;
+}
+
+.copyrightText {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+}
+
