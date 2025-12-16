@@ -42,24 +42,16 @@
 .brandLogo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   margin-bottom: 1.5rem;
 }
 
-.brandLogoText {
-  font-size: 1.875rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  color: #F4C430;
-  font-family: var(--font-heading);
-}
-
-.brandLogoSubtext {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #ffffff;
-  font-family: var(--font-body);
+.logoImage {
+  height: auto;
+  width: auto;
+  max-height: 3rem;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
 }
 
 .brandDescription {

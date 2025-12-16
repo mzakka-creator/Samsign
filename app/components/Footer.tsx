@@ -1,4 +1,6 @@
+import Image from "next/image";
 import styles from "./Footer.module.css";
+import logo from "../assets/logo.png";
 
 export default function Footer() {
   return (
@@ -8,12 +10,12 @@ export default function Footer() {
           {/* Brand Section */}
           <div className={styles.brandSection}>
             <div className={styles.brandLogo}>
-              <span className={styles.brandLogoText}>
-                SAM
-              </span>
-              <span className={styles.brandLogoSubtext}>
-                SIGN
-              </span>
+              <Image 
+                src={logo}
+                alt="SAM SIGN"
+                className={styles.logoImage}
+                priority
+              />
             </div>
             <p className={styles.brandDescription}>
               Art & Experience.. Driven by Performance.
