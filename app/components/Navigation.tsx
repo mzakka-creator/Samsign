@@ -5,9 +5,25 @@ import Image from "next/image";
 import styles from "./Navigation.module.css";
 import logo from "../assets/logo.png";
 
+const translations = {
+  en: {
+    partners: "Partners",
+    philosophy: "Philosophy",
+    vision: "Vision",
+    contact: "Contact",
+  },
+  ar: {
+    partners: "الشركاء",
+    philosophy: "الفلسفة",
+    vision: "الرؤية",
+    contact: "اتصل بنا",
+  },
+};
+
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [language, setLanguage] = useState<"en" | "ar">("en");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +32,12 @@ export default function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    // Update document direction and language
+    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+    document.documentElement.lang = language;
+  }, [language]);
 
   useEffect(() => {
     // Prevent body scroll when mobile menu is open
@@ -41,8 +63,25 @@ export default function Navigation() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === "en" ? "ar" : "en"));
+  };
+
+  const t = translations[language];
+
+  // Define menu items in order
+  const menuItems = [
+    { id: "partners", label: t.partners, isButton: false },
+    { id: "philosophy", label: t.philosophy, isButton: false },
+    { id: "vision", label: t.vision, isButton: false },
+    { id: "contact", label: t.contact, isButton: true },
+  ];
+
+  // Reverse order when Arabic is selected
+  const orderedMenuItems = language === "ar" ? [...menuItems].reverse() : menuItems;
+
   return (
-    <nav className={`${styles.nav} ${isScrolled ? styles.navScrolled : styles.navTransparent}`}>
+    <nav className={`${styles.nav} ${isScrolled ? styles.navScrolled : styles.navTransparent} ${language === "ar" ? styles.navRtl : ""}`}>
       {/* Glass morphism overlay */}
       <div className={styles.blurOverlay}></div>
       
@@ -66,33 +105,38 @@ export default function Navigation() {
           
           {/* Desktop Navigation Menu */}
           <div className={styles.navMenu}>
-            <button
-              onClick={() => scrollToSection("partners")}
-              className={`${styles.navButton} ${isScrolled ? styles.navButtonScrolled : styles.navButtonTransparent}`}
-            >
-              Partners
-            </button>
+            {language === "ar" && (
+              <button
+                onClick={toggleLanguage}
+                className={`${styles.languageButton} ${isScrolled ? styles.languageButtonScrolled : styles.languageButtonTransparent}`}
+                aria-label="Toggle language"
+              >
+                {language.toUpperCase()}
+              </button>
+            )}
             
-            <button
-              onClick={() => scrollToSection("philosophy")}
-              className={`${styles.navButton} ${isScrolled ? styles.navButtonScrolled : styles.navButtonTransparent}`}
-            >
-              Philosophy
-            </button>
+            {orderedMenuItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={item.isButton 
+                  ? styles.contactButton 
+                  : `${styles.navButton} ${isScrolled ? styles.navButtonScrolled : styles.navButtonTransparent}`
+                }
+              >
+                {item.label}
+              </button>
+            ))}
             
-            <button
-              onClick={() => scrollToSection("vision")}
-              className={`${styles.navButton} ${isScrolled ? styles.navButtonScrolled : styles.navButtonTransparent}`}
-            >
-              Vision
-            </button>
-            
-            <button
-              onClick={() => scrollToSection("contact")}
-              className={styles.contactButton}
-            >
-              Contact
-            </button>
+            {language === "en" && (
+              <button
+                onClick={toggleLanguage}
+                className={`${styles.languageButton} ${isScrolled ? styles.languageButtonScrolled : styles.languageButtonTransparent}`}
+                aria-label="Toggle language"
+              >
+                {language.toUpperCase()}
+              </button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -110,34 +154,39 @@ export default function Navigation() {
 
       {/* Mobile Menu Overlay */}
       <div className={`${styles.mobileMenuOverlay} ${isMobileMenuOpen ? styles.mobileMenuOverlayOpen : ''}`} onClick={toggleMobileMenu}>
-        <div className={styles.mobileMenu} onClick={(e) => e.stopPropagation()}>
-          <button
-            onClick={() => scrollToSection("partners")}
-            className={`${styles.mobileNavButton} ${isScrolled ? styles.mobileNavButtonScrolled : ''}`}
-          >
-            Partners
-          </button>
+        <div className={`${styles.mobileMenu} ${language === "ar" ? styles.mobileMenuRtl : ""}`} onClick={(e) => e.stopPropagation()}>
+          {language === "ar" && (
+            <button
+              onClick={toggleLanguage}
+              className={styles.mobileLanguageButton}
+              aria-label="Toggle language"
+            >
+              English ({language.toUpperCase()})
+            </button>
+          )}
           
-          <button
-            onClick={() => scrollToSection("philosophy")}
-            className={`${styles.mobileNavButton} ${isScrolled ? styles.mobileNavButtonScrolled : ''}`}
-          >
-            Philosophy
-          </button>
+          {orderedMenuItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={item.isButton 
+                ? styles.mobileContactButton 
+                : `${styles.mobileNavButton} ${isScrolled ? styles.mobileNavButtonScrolled : ''}`
+              }
+            >
+              {item.label}
+            </button>
+          ))}
           
-          <button
-            onClick={() => scrollToSection("vision")}
-            className={`${styles.mobileNavButton} ${isScrolled ? styles.mobileNavButtonScrolled : ''}`}
-          >
-            Vision
-          </button>
-          
-          <button
-            onClick={() => scrollToSection("contact")}
-            className={styles.mobileContactButton}
-          >
-            Contact
-          </button>
+          {language === "en" && (
+            <button
+              onClick={toggleLanguage}
+              className={styles.mobileLanguageButton}
+              aria-label="Toggle language"
+            >
+              {language === "en" ? "العربية" : "English"} ({language.toUpperCase()})
+            </button>
+          )}
         </div>
       </div>
     </nav>

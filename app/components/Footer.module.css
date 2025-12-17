@@ -149,3 +149,32 @@
   font-family: var(--font-body);
 }
 
+/* RTL Support */
+.footerRtl {
+  direction: rtl;
+}
+
+:global(html[lang="ar"]) .brandDescription {
+  font-family: var(--font-cairo), var(--font-body);
+}
+
+:global(html[lang="ar"]) .brandInfo {
+  font-family: var(--font-cairo), var(--font-body);
+}
+
+:global(html[lang="ar"]) .sectionTitle {
+  font-family: var(--font-cairo), var(--font-heading);
+}
+
+:global(html[lang="ar"]) .linksList {
+  font-family: var(--font-cairo), var(--font-body);
+}
+
+:global(html[lang="ar"]) .contactList {
+  font-family: var(--font-cairo), var(--font-body);
+}
+
+:global(html[lang="ar"]) .copyrightText {
+  font-family: var(--font-cairo), var(--font-body);
+}
+

@@ -259,3 +259,20 @@
   }
 }
 
+/* RTL Support */
+.sectionRtl {
+  direction: rtl;
+}
+
+:global(html[lang="ar"]) .quote {
+  font-family: var(--font-cairo), var(--font-heading);
+}
+
+:global(html[lang="ar"]) .philosophyText {
+  font-family: var(--font-cairo), var(--font-body);
+}
+
+:global(html[lang="ar"]) .statLabel {
+  font-family: var(--font-cairo), var(--font-body);
+}
+

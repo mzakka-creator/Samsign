@@ -35,8 +35,20 @@ import Tash from "../assets/partners/Tash.svg";
 import Urth from "../assets/partners/Urth.svg";
 import ZUMA from "../assets/partners/ZUMA.svg";
 
+const translations = {
+  en: {
+    title: "Trusted Partners",
+    subtitle: "Working with leading brands and businesses",
+  },
+  ar: {
+    title: "شركاء موثوقون",
+    subtitle: "نعمل مع العلامات التجارية والشركات الرائدة",
+  },
+};
+
 export default function Partners() {
   const [isVisible, setIsVisible] = useState(false);
+  const [language, setLanguage] = useState<"en" | "ar">("en");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -57,6 +69,31 @@ export default function Partners() {
       if (element) observer.unobserve(element);
     };
   }, []);
+
+  useEffect(() => {
+    // Read language from document element (set by Navigation component)
+    const currentLang = document.documentElement.lang as "en" | "ar" | undefined;
+    if (currentLang === "ar" || currentLang === "en") {
+      setLanguage(currentLang);
+    }
+    
+    // Listen for language changes
+    const observer = new MutationObserver(() => {
+      const lang = document.documentElement.lang as "en" | "ar" | undefined;
+      if (lang === "ar" || lang === "en") {
+        setLanguage(lang);
+      }
+    });
+    
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["lang"],
+    });
+    
+    return () => observer.disconnect();
+  }, []);
+
+  const t = translations[language];
 
   // Partner logos array
   const partners = [
@@ -95,15 +132,15 @@ export default function Partners() {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <section id="partners" className={styles.section}>
+    <section id="partners" className={`${styles.section} ${language === "ar" ? styles.sectionRtl : ""}`}>
       <div className={styles.container}>
         {/* Section Header */}
         <div className={`${styles.header} ${isVisible ? styles.headerVisible : styles.headerHidden}`}>
           <h2 className={styles.title}>
-            Trusted Partners
+            {t.title}
           </h2>
           <p className={styles.subtitle}>
-            Working with leading brands and businesses
+            {t.subtitle}
           </p>
         </div>
 

@@ -13,27 +13,197 @@ interface Stat {
 
 type TabType = "about" | "vision" | "values";
 
-const initialStats: Stat[] = [
-  { value: 0, suffix: "+", label: "Successful Projects" },
-  { value: 0, suffix: "+", label: "Trusted Partners" },
-  { value: 0, suffix: "%", label: "Custom Solutions" },
-  { value: 5, suffix: "+Year", label: "Quality Guarantee" },
-];
+const translations = {
+  en: {
+    sectionTitle: "Who We Are & Where We're Going",
+    about: {
+      title: "ABOUT SAMSIGN",
+      text1: "Since 2018, SamSign has been at the forefront of professional advertising solutions. We're not just sign makers - we're brand storytellers who combine artistic excellence with engineering precision.",
+      text2: "What started as a commitment to quality has evolved into a reputation for setting industry standards. Every indoor sign, outdoor display, and custom installation carries our signature: uncompromising craftsmanship driven by performance.",
+      stats: {
+        successfulProjects: "Successful Projects",
+        trustedPartners: "Trusted Partners",
+        customSolutions: "Custom Solutions",
+        qualityGuarantee: "Quality Guarantee",
+      },
+    },
+    vision: {
+      title: "OUR VISION",
+      text1: "To become the leading force in professional signage solutions, where art meets engineering and performance drives every project. We envision a future where brands communicate with clarity, impact, and lasting presence.",
+      text2: "Our vision extends beyond creating signs - we're building a legacy of excellence that transforms how businesses connect with their audiences. Through innovation, craftsmanship, and unwavering commitment to quality, we're setting new standards in the industry.",
+      points: {
+        innovation: {
+          title: "Innovation First",
+          text: "Pioneering new techniques and technologies in signage design and manufacturing.",
+        },
+        leadership: {
+          title: "Industry Leadership",
+          text: "Setting benchmarks that others follow, establishing ourselves as the go-to experts.",
+        },
+        growth: {
+          title: "Sustainable Growth",
+          text: "Building lasting relationships and creating solutions that stand the test of time.",
+        },
+        excellence: {
+          title: "Global Excellence",
+          text: "Expanding our reach while maintaining the highest standards of quality and service worldwide.",
+        },
+      },
+    },
+    values: {
+      title: "OUR VALUES",
+      text: "Our values are the foundation of everything we do. They guide our decisions, shape our relationships, and define our commitment to excellence.",
+      items: {
+        quality: {
+          title: "Quality",
+          text: "Uncompromising standards in materials, craftsmanship, and execution. Every project reflects our commitment to excellence.",
+        },
+        performance: {
+          title: "Performance",
+          text: "Results-driven approach that delivers measurable impact. We don't just create signs - we create solutions that work.",
+        },
+        innovation: {
+          title: "Innovation",
+          text: "Embracing new technologies and creative approaches to stay ahead of industry trends and client expectations.",
+        },
+        integrity: {
+          title: "Integrity",
+          text: "Honest communication, transparent processes, and ethical business practices in every interaction.",
+        },
+        craftsmanship: {
+          title: "Craftsmanship",
+          text: "Artistic excellence combined with engineering precision. Where creativity meets technical mastery.",
+        },
+        partnership: {
+          title: "Partnership",
+          text: "Building long-term relationships based on trust, collaboration, and mutual success.",
+        },
+      },
+    },
+  },
+  ar: {
+    sectionTitle: "من نحن وإلى أين نتجه",
+    about: {
+      title: "حول سام ساين",
+      text1: "منذ عام 2018، كانت SamSign في طليعة حلول الإعلان الاحترافية. نحن لسنا مجرد صانعي لافتات - نحن رواة قصص العلامات التجارية الذين يجمعون بين التميز الفني والدقة الهندسية.",
+      text2: "ما بدأ كالتزام بالجودة تطور ليصبح سمعة لوضع معايير الصناعة. كل لافتة داخلية وعرض خارجي وتركيب مخصص يحمل توقيعنا: الحرفية التي لا هوادة فيها مدفوعة بالأداء.",
+      stats: {
+        successfulProjects: "مشاريع ناجحة",
+        trustedPartners: "شركاء موثوقون",
+        customSolutions: "حلول مخصصة",
+        qualityGuarantee: "ضمان الجودة",
+      },
+    },
+    vision: {
+      title: "رؤيتنا",
+      text1: "أن نصبح القوة الرائدة في حلول اللافتات الاحترافية، حيث يلتقي الفن بالهندسة ويقود الأداء كل مشروع. نتطلع إلى مستقبل تتواصل فيه العلامات التجارية بوضوح وتأثير ووجود دائم.",
+      text2: "تمتد رؤيتنا إلى ما هو أبعد من إنشاء اللافتات - نحن نبني إرثًا من التميز يحول طريقة اتصال الشركات بجماهيرها. من خلال الابتكار والحرفية والالتزام الثابت بالجودة، نحن نضع معايير جديدة في الصناعة.",
+      points: {
+        innovation: {
+          title: "الابتكار أولاً",
+          text: "ريادة تقنيات وتقنيات جديدة في تصميم وتصنيع اللافتات.",
+        },
+        leadership: {
+          title: "الريادة في الصناعة",
+          text: "وضع معايير يتبعها الآخرون، وإنشاء أنفسنا كخبراء موثوقين.",
+        },
+        growth: {
+          title: "النمو المستدام",
+          text: "بناء علاقات دائمة وإنشاء حلول تصمد أمام اختبار الزمن.",
+        },
+        excellence: {
+          title: "التميز العالمي",
+          text: "توسيع نطاق وصولنا مع الحفاظ على أعلى معايير الجودة والخدمة في جميع أنحاء العالم.",
+        },
+      },
+    },
+    values: {
+      title: "قيمنا",
+      text: "قيمنا هي أساس كل ما نقوم به. إنها توجه قراراتنا وتشكل علاقاتنا وتحدد التزامنا بالتميز.",
+      items: {
+        quality: {
+          title: "الجودة",
+          text: "معايير لا هوادة فيها في المواد والحرفية والتنفيذ. كل مشروع يعكس التزامنا بالتميز.",
+        },
+        performance: {
+          title: "الأداء",
+          text: "نهج مدفوع بالنتائج يحقق تأثيرًا قابلاً للقياس. نحن لا نصنع لافتات فقط - نحن نصنع حلولاً تعمل.",
+        },
+        innovation: {
+          title: "الابتكار",
+          text: "اعتماد تقنيات ونهج إبداعية جديدة للبقاء في المقدمة من اتجاهات الصناعة وتوقعات العملاء.",
+        },
+        integrity: {
+          title: "النزاهة",
+          text: "التواصل الصادق والعمليات الشفافة وممارسات الأعمال الأخلاقية في كل تفاعل.",
+        },
+        craftsmanship: {
+          title: "الحرفية",
+          text: "التميز الفني مقترنًا بالدقة الهندسية. حيث يلتقي الإبداع بالإتقان التقني.",
+        },
+        partnership: {
+          title: "الشراكة",
+          text: "بناء علاقات طويلة الأمد مبنية على الثقة والتعاون والنجاح المتبادل.",
+        },
+      },
+    },
+  },
+};
 
-const targetStats: Stat[] = [
-  { value: 500, suffix: "+", label: "Successful Projects" },
-  { value: 50, suffix: "+", label: "Trusted Partners" },
-  { value: 100, suffix: "%", label: "Custom Solutions" },
-  { value: 5, suffix: "+Year", label: "Quality Guarantee" },
-];
+const getInitialStats = (lang: "en" | "ar"): Stat[] => {
+  const t = translations[lang].about.stats;
+  return [
+    { value: 0, suffix: "+", label: t.successfulProjects },
+    { value: 0, suffix: "+", label: t.trustedPartners },
+    { value: 0, suffix: "%", label: t.customSolutions },
+    { value: 5, suffix: "+Year", label: t.qualityGuarantee },
+  ];
+};
+
+const getTargetStats = (lang: "en" | "ar"): Stat[] => {
+  const t = translations[lang].about.stats;
+  return [
+    { value: 500, suffix: "+", label: t.successfulProjects },
+    { value: 50, suffix: "+", label: t.trustedPartners },
+    { value: 100, suffix: "%", label: t.customSolutions },
+    { value: 5, suffix: "+Year", label: t.qualityGuarantee },
+  ];
+};
 
 export default function VisionValues() {
   const [activeTab, setActiveTab] = useState<TabType>("about");
   const [isVisible, setIsVisible] = useState(false);
-  const [stats, setStats] = useState<Stat[]>(initialStats);
+  const [language, setLanguage] = useState<"en" | "ar">("en");
+  const [stats, setStats] = useState<Stat[]>(getInitialStats("en"));
   const [isTransitioning, setIsTransitioning] = useState(false);
   const animationIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const hasAnimatedRef = useRef(false);
+
+  useEffect(() => {
+    // Read language from document element (set by Navigation component)
+    const currentLang = document.documentElement.lang as "en" | "ar" | undefined;
+    if (currentLang === "ar" || currentLang === "en") {
+      setLanguage(currentLang);
+      // Update stats labels when language changes
+      setStats(getInitialStats(currentLang));
+    }
+    
+    // Listen for language changes
+    const observer = new MutationObserver(() => {
+      const lang = document.documentElement.lang as "en" | "ar" | undefined;
+      if (lang === "ar" || lang === "en") {
+        setLanguage(lang);
+        setStats(getInitialStats(lang));
+      }
+    });
+    
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["lang"],
+    });
+    
+    return () => observer.disconnect();
+  }, []);
 
   const animateStats = () => {
     // Clear any existing animation
@@ -42,7 +212,9 @@ export default function VisionValues() {
     }
 
     // Reset stats to initial values
-    setStats(initialStats);
+    const initial = getInitialStats(language);
+    const target = getTargetStats(language);
+    setStats(initial);
 
     const duration = 2000; // 2 seconds
     const steps = 60;
@@ -54,14 +226,14 @@ export default function VisionValues() {
       const progress = currentStep / steps;
 
       setStats(
-        targetStats.map((target, index) => {
+        target.map((targetStat, index) => {
           // For the 5-Year guarantee, show it immediately
           if (index === 3) {
-            return target;
+            return targetStat;
           }
           return {
-            ...target,
-            value: Math.floor(target.value * progress),
+            ...targetStat,
+            value: Math.floor(targetStat.value * progress),
           };
         })
       );
@@ -71,7 +243,7 @@ export default function VisionValues() {
           clearInterval(animationIntervalRef.current);
           animationIntervalRef.current = null;
         }
-        setStats(targetStats);
+        setStats(target);
         hasAnimatedRef.current = true;
       }
     }, stepDuration);
@@ -116,7 +288,7 @@ export default function VisionValues() {
         clearInterval(animationIntervalRef.current);
         animationIntervalRef.current = null;
       }
-      setStats(initialStats);
+      setStats(getInitialStats(language));
       hasAnimatedRef.current = false;
     }
 
@@ -126,7 +298,7 @@ export default function VisionValues() {
         animationIntervalRef.current = null;
       }
     };
-  }, [activeTab, isVisible]);
+  }, [activeTab, isVisible, language]);
 
   const tabs: TabType[] = ["about", "vision", "values"];
 
@@ -182,16 +354,18 @@ export default function VisionValues() {
   };
 
   const renderContent = () => {
+    const t = translations[language];
+    
     switch (activeTab) {
       case "about":
         return (
           <div className={styles.contentSection}>
-            <h3 className={styles.columnTitle}>ABOUT SAMSIGN</h3>
+            <h3 className={styles.columnTitle}>{t.about.title}</h3>
             <p className={styles.aboutText}>
-              Since 2018, SamSign has been at the forefront of professional advertising solutions. We're not just sign makers - we're brand storytellers who combine artistic excellence with engineering precision.
+              {t.about.text1}
             </p>
             <p className={styles.aboutTextSecondary}>
-              What started as a commitment to quality has evolved into a reputation for setting industry standards. Every indoor sign, outdoor display, and custom installation carries our signature: uncompromising craftsmanship driven by performance.
+              {t.about.text2}
             </p>
             
             <div className={styles.statsGrid}>
@@ -211,29 +385,29 @@ export default function VisionValues() {
       case "vision":
         return (
           <div className={styles.contentSection}>
-            <h3 className={styles.columnTitle}>OUR VISION</h3>
+            <h3 className={styles.columnTitle}>{t.vision.title}</h3>
             <p className={styles.aboutText}>
-              To become the leading force in professional signage solutions, where art meets engineering and performance drives every project. We envision a future where brands communicate with clarity, impact, and lasting presence.
+              {t.vision.text1}
             </p>
             <p className={styles.aboutTextSecondary}>
-              Our vision extends beyond creating signs - we're building a legacy of excellence that transforms how businesses connect with their audiences. Through innovation, craftsmanship, and unwavering commitment to quality, we're setting new standards in the industry.
+              {t.vision.text2}
             </p>
             <div className={styles.visionPoints}>
               <div className={styles.visionPoint}>
-                <h4 className={styles.visionPointTitle}>Innovation First</h4>
-                <p className={styles.visionPointText}>Pioneering new techniques and technologies in signage design and manufacturing.</p>
+                <h4 className={styles.visionPointTitle}>{t.vision.points.innovation.title}</h4>
+                <p className={styles.visionPointText}>{t.vision.points.innovation.text}</p>
               </div>
               <div className={styles.visionPoint}>
-                <h4 className={styles.visionPointTitle}>Industry Leadership</h4>
-                <p className={styles.visionPointText}>Setting benchmarks that others follow, establishing ourselves as the go-to experts.</p>
+                <h4 className={styles.visionPointTitle}>{t.vision.points.leadership.title}</h4>
+                <p className={styles.visionPointText}>{t.vision.points.leadership.text}</p>
               </div>
               <div className={styles.visionPoint}>
-                <h4 className={styles.visionPointTitle}>Sustainable Growth</h4>
-                <p className={styles.visionPointText}>Building lasting relationships and creating solutions that stand the test of time.</p>
+                <h4 className={styles.visionPointTitle}>{t.vision.points.growth.title}</h4>
+                <p className={styles.visionPointText}>{t.vision.points.growth.text}</p>
               </div>
               <div className={styles.visionPoint}>
-                <h4 className={styles.visionPointTitle}>Global Excellence</h4>
-                <p className={styles.visionPointText}>Expanding our reach while maintaining the highest standards of quality and service worldwide.</p>
+                <h4 className={styles.visionPointTitle}>{t.vision.points.excellence.title}</h4>
+                <p className={styles.visionPointText}>{t.vision.points.excellence.text}</p>
               </div>
             </div>
           </div>
@@ -242,34 +416,34 @@ export default function VisionValues() {
       case "values":
         return (
           <div className={styles.contentSection}>
-            <h3 className={styles.columnTitle}>OUR VALUES</h3>
+            <h3 className={styles.columnTitle}>{t.values.title}</h3>
             <p className={styles.aboutText}>
-              Our values are the foundation of everything we do. They guide our decisions, shape our relationships, and define our commitment to excellence.
+              {t.values.text}
             </p>
             <div className={styles.valuesGrid}>
               <div className={styles.valueItem}>
-                <h4 className={styles.valueTitle}>Quality</h4>
-                <p className={styles.valueText}>Uncompromising standards in materials, craftsmanship, and execution. Every project reflects our commitment to excellence.</p>
+                <h4 className={styles.valueTitle}>{t.values.items.quality.title}</h4>
+                <p className={styles.valueText}>{t.values.items.quality.text}</p>
               </div>
               <div className={styles.valueItem}>
-                <h4 className={styles.valueTitle}>Performance</h4>
-                <p className={styles.valueText}>Results-driven approach that delivers measurable impact. We don't just create signs - we create solutions that work.</p>
+                <h4 className={styles.valueTitle}>{t.values.items.performance.title}</h4>
+                <p className={styles.valueText}>{t.values.items.performance.text}</p>
               </div>
               <div className={styles.valueItem}>
-                <h4 className={styles.valueTitle}>Innovation</h4>
-                <p className={styles.valueText}>Embracing new technologies and creative approaches to stay ahead of industry trends and client expectations.</p>
+                <h4 className={styles.valueTitle}>{t.values.items.innovation.title}</h4>
+                <p className={styles.valueText}>{t.values.items.innovation.text}</p>
               </div>
               <div className={styles.valueItem}>
-                <h4 className={styles.valueTitle}>Integrity</h4>
-                <p className={styles.valueText}>Honest communication, transparent processes, and ethical business practices in every interaction.</p>
+                <h4 className={styles.valueTitle}>{t.values.items.integrity.title}</h4>
+                <p className={styles.valueText}>{t.values.items.integrity.text}</p>
               </div>
               <div className={styles.valueItem}>
-                <h4 className={styles.valueTitle}>Craftsmanship</h4>
-                <p className={styles.valueText}>Artistic excellence combined with engineering precision. Where creativity meets technical mastery.</p>
+                <h4 className={styles.valueTitle}>{t.values.items.craftsmanship.title}</h4>
+                <p className={styles.valueText}>{t.values.items.craftsmanship.text}</p>
               </div>
               <div className={styles.valueItem}>
-                <h4 className={styles.valueTitle}>Partnership</h4>
-                <p className={styles.valueText}>Building long-term relationships based on trust, collaboration, and mutual success.</p>
+                <h4 className={styles.valueTitle}>{t.values.items.partnership.title}</h4>
+                <p className={styles.valueText}>{t.values.items.partnership.text}</p>
               </div>
             </div>
           </div>
@@ -280,8 +454,10 @@ export default function VisionValues() {
     }
   };
 
+  const t = translations[language];
+
   return (
-    <section id="vision" className={styles.section}>
+    <section id="vision" className={`${styles.section} ${language === "ar" ? styles.sectionRtl : ""}`}>
       {/* Background Image */}
       <div className={styles.backgroundImageContainer}>
         <Image
@@ -294,7 +470,7 @@ export default function VisionValues() {
       </div>
       <div className={styles.container}>
         <h2 className={styles.sectionTitle}>
-          Who We Are & Where We're Going
+          {t.sectionTitle}
         </h2>
 
         <div className={styles.grid}>

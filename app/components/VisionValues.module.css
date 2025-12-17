@@ -1234,3 +1234,79 @@
   }
 }
 
+/* RTL Support */
+.sectionRtl {
+  direction: rtl;
+}
+
+:global(html[lang="ar"]) .sectionTitle {
+  font-family: var(--font-cairo), var(--font-heading);
+}
+
+:global(html[lang="ar"]) .columnTitle {
+  font-family: var(--font-cairo), var(--font-heading);
+}
+
+:global(html[lang="ar"]) .aboutText {
+  font-family: var(--font-cairo), var(--font-body);
+}
+
+:global(html[lang="ar"]) .aboutTextSecondary {
+  font-family: var(--font-cairo), var(--font-body);
+}
+
+:global(html[lang="ar"]) .statLabel {
+  font-family: var(--font-cairo), var(--font-body);
+}
+
+:global(html[lang="ar"]) .visionPointTitle {
+  font-family: var(--font-cairo), var(--font-heading);
+}
+
+:global(html[lang="ar"]) .visionPointText {
+  font-family: var(--font-cairo), var(--font-body);
+}
+
+:global(html[lang="ar"]) .valueTitle {
+  font-family: var(--font-cairo), var(--font-heading);
+}
+
+:global(html[lang="ar"]) .valueText {
+  font-family: var(--font-cairo), var(--font-body);
+}
+
+/* RTL Arrow Button Positioning */
+.sectionRtl .arrowButtonLeft {
+  left: auto;
+  right: 0.5rem;
+}
+
+.sectionRtl .arrowButtonRight {
+  right: auto;
+  left: 0.5rem;
+}
+
+@media (min-width: 480px) {
+  .sectionRtl .arrowButtonLeft {
+    left: auto;
+    right: -1.5rem;
+  }
+  
+  .sectionRtl .arrowButtonRight {
+    right: auto;
+    left: -1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .sectionRtl .arrowButtonLeft {
+    left: auto;
+    right: -2.5rem;
+  }
+  
+  .sectionRtl .arrowButtonRight {
+    right: auto;
+    left: -2.5rem;
+  }
+}
+
