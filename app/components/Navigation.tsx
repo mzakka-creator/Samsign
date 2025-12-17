@@ -155,17 +155,7 @@ export default function Navigation() {
       {/* Mobile Menu Overlay */}
       <div className={`${styles.mobileMenuOverlay} ${isMobileMenuOpen ? styles.mobileMenuOverlayOpen : ''}`} onClick={toggleMobileMenu}>
         <div className={`${styles.mobileMenu} ${language === "ar" ? styles.mobileMenuRtl : ""}`} onClick={(e) => e.stopPropagation()}>
-          {language === "ar" && (
-            <button
-              onClick={toggleLanguage}
-              className={styles.mobileLanguageButton}
-              aria-label="Toggle language"
-            >
-              English ({language.toUpperCase()})
-            </button>
-          )}
-          
-          {orderedMenuItems.map((item) => (
+          {menuItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
@@ -178,15 +168,14 @@ export default function Navigation() {
             </button>
           ))}
           
-          {language === "en" && (
-            <button
-              onClick={toggleLanguage}
-              className={styles.mobileLanguageButton}
-              aria-label="Toggle language"
-            >
-              {language === "en" ? "العربية" : "English"} ({language.toUpperCase()})
-            </button>
-          )}
+          {/* Language button always at bottom on mobile */}
+          <button
+            onClick={toggleLanguage}
+            className={styles.mobileLanguageButton}
+            aria-label="Toggle language"
+          >
+            {language.toUpperCase()}
+          </button>
         </div>
       </div>
     </nav>

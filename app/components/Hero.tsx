@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./Hero.module.css";
 import heroBanner from "../assets/Hero-Banner.png";
-
+  
 const translations = {
   en: {
     brandName: "SamSign",

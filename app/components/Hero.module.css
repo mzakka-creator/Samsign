@@ -78,14 +78,14 @@
 @media (max-width: 768px) {
   .heroRtl .heroBanner {
     transform: scaleX(-1);
-    object-position: center;
+    object-position: right center;
   }
 }
 
 @media (max-width: 480px) {
   .heroRtl .heroBanner {
     transform: scaleX(-1);
-    object-position: center;
+    object-position: right center;
   }
 }
 
@@ -132,10 +132,22 @@
   }
 }
 
+@media (min-width: 480px) and (max-width: 767px) {
+  .contentGrid {
+    align-items: center;
+  }
+}
+
 @media (min-width: 768px) {
   .contentGrid {
     gap: 3rem;
     min-height: calc(100vh - 16rem);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .contentGrid {
+    align-items: center;
   }
 }
 
