@@ -168,7 +168,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className={styles.copyright}>
           <p className={styles.copyrightText}>
-            © {new Date().getFullYear()} SAM SIGN. {t.copyright}
+            © {new Date().getFullYear()} SamSign. {t.copyright}
           </p>
         </div>
       </div>

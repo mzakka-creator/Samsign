@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./Hero.module.css";
 import heroBanner from "../assets/Hero-Banner.png";
+import heroBannerArabic from "../assets/Hero-Banner-arabic.png";
   
 const translations = {
   en: {
@@ -11,16 +12,12 @@ const translations = {
     headline: "Art & Experience..",
     highlight: "Driven by Performance.",
     subheadline: "Professional advertising solutions",
-    subheadlineSecondary: "Since 2018",
-    ctaButton: "Get Started",
   },
   ar: {
     brandName: "سام ساين",
     headline: "الفن والخبرة..",
     highlight: "مدفوع بالأداء.",
     subheadline: "حلول إعلانية احترافية",
-    subheadlineSecondary: "منذ 2018",
-    ctaButton: "ابدأ الآن",
   },
 };
 
@@ -55,13 +52,6 @@ export default function Hero() {
     return () => observer.disconnect();
   }, []);
 
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const t = translations[language];
 
   return (
@@ -75,7 +65,7 @@ export default function Hero() {
       {/* Hero Banner Image */}
       <div className={styles.heroBannerContainer}>
         <Image
-          src={heroBanner}
+          src={language === "ar" ? heroBannerArabic : heroBanner}
           alt="Hero Banner"
           fill
           className={styles.heroBanner}
@@ -99,20 +89,7 @@ export default function Hero() {
           {/* Subheadline */}
             <p className={styles.subheadline}>
               {t.subheadline}
-            <br />
-              <span className={styles.subheadlineSecondary}>{t.subheadlineSecondary}</span>
-          </p>
-          
-          {/* CTA Button */}
-          <button
-            onClick={scrollToContact}
-              className={styles.ctaButton}
-          >
-              <span className={styles.ctaButtonContent}>
-              {t.ctaButton}
-                <span className={styles.ctaButtonArrow}>{language === "ar" ? "←" : "→"}</span>
-            </span>
-          </button>
+            </p>
           </div>
         </div>
       </div>

@@ -156,8 +156,8 @@ export default function Partners() {
                   <Image
                     src={partner.logo}
                     alt={partner.name}
-                    width={160}
-                    height={160}
+                    width={220}
+                    height={220}
                     className={styles.logoImage}
                   />
                 </div>

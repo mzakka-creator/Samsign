@@ -120,7 +120,7 @@ export default function Navigation() {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={item.isButton 
-                  ? styles.contactButton 
+                  ? `${styles.contactButton} ${isScrolled ? styles.contactButtonScrolled : styles.contactButtonTransparent}`
                   : `${styles.navButton} ${isScrolled ? styles.navButtonScrolled : styles.navButtonTransparent}`
                 }
               >

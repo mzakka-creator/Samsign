@@ -9,7 +9,7 @@
 }
 
 .navScrolled {
-  background: rgba(188, 192, 196, 0.95);
+  background: #e5ebf2;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   padding: 1rem 0;
@@ -170,7 +170,7 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: #F4C430;
+  background: #333333;
   transition: width 0.3s ease;
 }
 
@@ -225,8 +225,6 @@
 /* Contact Button */
 .contactButton {
   padding: 0.75rem 2rem;
-  background: #F4C430;
-  color: #000000;
   font-weight: 500;
   font-size: 0.9375rem;
   font-family: var(--font-body);
@@ -241,8 +239,23 @@
   font-family: var(--font-cairo), var(--font-body);
 }
 
-.contactButton:hover {
-  background: #e0b028;
+.contactButtonScrolled {
+  background: #333333;
+  color: #ffffff;
+}
+
+.contactButtonScrolled:hover {
+  background: #000000;
+  transform: translateY(-1px);
+}
+
+.contactButtonTransparent {
+  background: rgba(188, 192, 196, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.contactButtonTransparent:hover {
+  background: rgba(188, 192, 196, 0.5);
   transform: translateY(-1px);
 }
 
@@ -416,8 +429,8 @@
 .mobileContactButton {
   width: 100%;
   padding: 1rem 1.5rem;
-  background: #F4C430;
-  color: #000000;
+  background: #333333;
+  color: #ffffff;
   font-weight: 500;
   font-size: 1rem;
   font-family: var(--font-body);
@@ -434,7 +447,7 @@
 }
 
 .mobileContactButton:hover {
-  background: #e0b028;
+  background: #000000;
   transform: translateY(-2px);
 }
 

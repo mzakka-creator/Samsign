@@ -137,8 +137,8 @@
 
 .partnerCard {
   flex-shrink: 0;
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,23 +151,23 @@
 
 @media (min-width: 768px) {
   .partnerCard {
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
   }
 }
 
 @media (min-width: 1024px) {
   .partnerCard {
-    width: 160px;
-    height: 160px;
+    width: 220px;
+    height: 220px;
   }
 }
 
 .partnerCard:hover {
-  background: rgba(244, 196, 48, 0.15);
-  border-color: rgba(244, 196, 48, 0.4);
+  background: rgba(188, 192, 196, 0.15);
+  border-color: rgba(188, 192, 196, 0.4);
   transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(244, 196, 48, 0.2);
+  box-shadow: 0 10px 25px rgba(188, 192, 196, 0.2);
 }
 
 .partnerLogo {

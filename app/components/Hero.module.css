@@ -71,21 +71,18 @@
 }
 
 .heroRtl .heroBanner {
-  transform: scaleX(-1);
   object-position: center;
 }
 
 @media (max-width: 768px) {
   .heroRtl .heroBanner {
-    transform: scaleX(-1);
-    object-position: right center;
+    object-position: left center;
   }
 }
 
 @media (max-width: 480px) {
   .heroRtl .heroBanner {
-    transform: scaleX(-1);
-    object-position: right center;
+    object-position: left center;
   }
 }
 
@@ -237,12 +234,13 @@
 }
 
 .brandName {
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #F4C430;
   margin-bottom: 0.75rem;
   font-family: "Myriad Pro", "Myriad", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   letter-spacing: 0.02em;
+  opacity: 1;
 }
 
 :global(html[lang="ar"]) .brandName {
@@ -251,20 +249,20 @@
 
 @media (min-width: 480px) {
   .brandName {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
   }
 }
 
 @media (min-width: 768px) {
   .brandName {
-    font-size: 1.875rem;
+    font-size: 2.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .brandName {
-    font-size: 2.25rem;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
   }
 }
@@ -276,7 +274,7 @@
   margin-bottom: 1rem;
   font-family: "Myriad Pro", "Myriad", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   letter-spacing: 0;
-  color: rgba(200, 200, 200, 0.9);
+  color: #ffffff;
 }
 
 :global(html[lang="ar"]) .headline {
@@ -306,7 +304,7 @@
 }
 
 .highlight {
-  color: rgba(200, 200, 200, 0.9);
+  color: #ffffff;
   position: relative;
   display: inline-block;
   font-weight: 700;
@@ -321,14 +319,13 @@
 }
 
 .subheadline {
-  font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 2rem;
-  max-width: 100%;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1rem;
   font-family: "Myriad Pro", "Myriad", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.6;
-  font-weight: 300;
   letter-spacing: 0;
+  color: #ffffff;
 }
 
 :global(html[lang="ar"]) .subheadline {
@@ -337,16 +334,23 @@
 
 @media (min-width: 480px) {
   .subheadline {
-    font-size: 0.875rem;
-    margin-bottom: 2.5rem;
-    max-width: 36rem;
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
   }
 }
 
 @media (min-width: 768px) {
   .subheadline {
-    font-size: 0.9375rem;
-    margin-bottom: 3.5rem;
+    font-size: 2.75rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .subheadline {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.25;
   }
 }
 
