@@ -111,7 +111,37 @@
 }
 
 .contactLabel {
-  color: #F4C430;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+}
+
+.instagramIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.25rem;
+}
+
+[dir="rtl"] .instagramIcon {
+  margin-right: 0;
+  margin-left: 0.25rem;
+}
+
+.contactValue {
+  display: inline-block;
+  margin-left: 0.5rem;
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contactValue:hover {
+  color: #ffffff;
+}
+
+[dir="rtl"] .contactValue {
+  margin-left: 0;
+  margin-right: 0.5rem;
 }
 
 .socialLinks {
@@ -142,10 +172,92 @@
   font-weight: 700;
 }
 
+.ministrySection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-top: 1px solid #1f2937;
+  margin-top: 2rem;
+}
+
+.ministryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.ministryLogo {
+  width: auto;
+  height: 80px;
+  max-width: 120px;
+  object-fit: contain;
+}
+
+.ministryNumber {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  font-weight: 400;
+  font-family: var(--font-body);
+  margin: 0;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .ministrySection {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .ministryItem {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  
+  .ministryLogo {
+    height: 80px;
+    max-width: 120px;
+  }
+  
+  .ministryNumber {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ministrySection {
+    gap: 3rem;
+    align-items: flex-end;
+  }
+  
+  .ministryLogo {
+    height: 100px;
+    max-width: 150px;
+  }
+  
+  .ministryNumber {
+    font-size: 0.9375rem;
+  }
+}
+
+.contactSection {
+  padding: 2rem 0;
+  border-top: 1px solid #1f2937;
+  margin-top: 2rem;
+}
+
 .copyright {
   border-top: 1px solid #1f2937;
   padding-top: 2rem;
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 .copyrightText {
@@ -182,5 +294,33 @@
 
 :global(html[lang="ar"]) .copyrightText {
   font-family: var(--font-cairo), var(--font-body);
+}
+
+:global(html[lang="ar"]) .ministryItem {
+  align-items: flex-start;
+}
+
+:global(html[lang="ar"]) .ministryNumber {
+  text-align: right;
+}
+
+:global(html[lang="ar"]) .ministrySection {
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  :global(html[lang="ar"]) .ministrySection {
+    align-items: flex-end;
+  }
+  
+  :global(html[lang="ar"]) .ministryItem {
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 1024px) {
+  :global(html[lang="ar"]) .ministrySection {
+    align-items: flex-end;
+  }
 }
 
